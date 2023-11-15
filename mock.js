@@ -4,28 +4,20 @@ const str1 = str.split(" ");
 const str3 = str1.reverse();
 console.log(str3.join(" "));
 
-// function Sum(num) {
-//   let sum = num.c((acc, val) => {
-//     return acc + val;
-//   }, 0);
-// }
-// console.log(Sum(123));
+function sumOfDigits(n) {
+  const numStr = n.toString();
+  console.log(numStr);
 
-let num = 123;
+  const sum = Array.from(numStr).reduce(
+    (acc, digit) => acc + parseInt(digit),
+    0
+  );
 
-const arr = String(num)
-  .split(" ")
-  .map((num) => {
-    return Number(num);
-  });
-console.log(arr);
-
-function Sum(arr) {
-  const val = arr.reduce((acc, current) => {
-    return acc + current;
-  }, 0);
+  return sum;
 }
-console.log(Sum(arr));
+
+const number = 123;
+console.log(sumOfDigits(number));
 
 const url = "https://jsonplaceholder.typicode.com/users";
 
@@ -36,7 +28,9 @@ async function GetUser(url, CallbackFunction) {
 }
 function CallbackFunction(res) {
   console.log(res);
-  const names = res.map((data) => data.name);
+  const name = res.map((data) => data.name);
+  console.log(name);
+  const names = res.map((data) => data.company.name);
   console.log(names);
 }
 
